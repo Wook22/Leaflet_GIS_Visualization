@@ -13,9 +13,42 @@ function markerSize(magnitude) {
     return magnitude * 5;
 }
 
-function createMarker(response) {
+function createMarker(response, latlng) {
+    return L.circleMarker(latlng, {
+        radius: markerSize(response.properties.mag),
+        fillColor: markerColor(response.geometry.coordinates[2]),
+        color:"#000",
+        weight: 0.5,
+        opacity: 0.5,
+        fillOpacity: 1
+    });
+}
 
+function createFeatures(earthquakeData, plateData) {
+    //Define function to run for each feature in the features array.
+    // Give each feature a popup that describes the time and place of the earthquake.
+    function onEachFeature(response, layer) {
+        layer.bindPopup(`<h3>Location:</h3> ${response.properties.place}<h3> Magnitude:</h3> ${response.properties.mag}<h3> Depth:</h3> ${response.geometry.coordinates[2]}`);
+    }
 
+    // Create a GeoJSON layer that contains the features array on the earthquakeData object.
+    // Run the onEachFeature function for each piece of data in the array.
+    let earthquakes = L.geoJSON(earthquakeData, {
+        onEachFeature: onEachFeature,
+        pointToLayer: createMarker
+    });
+    // Create a GeoJSON layer that contains the features array on the plateData object.
+    let plates = L.geoJSON(plateData, {
+        style: function() {
+            return {
+                color: "blue",
+                weight: 2.5
+            }
+        }
+    });
+
+    // Send earthquakes layer to the createMap function
+    createMap(earthquakes, plates);
 }
 
 
@@ -126,24 +159,19 @@ function createMap (data, optional_data) {
 
 
 
-
-
-
-
-
-let url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
+let earthquake_url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Part 2 : Gather and Plot More Data (Optional with no extra points earning)
 
 
-let  optional_url = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json"
+let  plate_url = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_plates.json"
 
 
-d3.json(url).then(function(data) {
-    d3.json(optional_url).then(function(optional_data) {
-        console.log(data);
-        console.log(optional_data);
-        createFeatures(data.features, optional_data.features)
+d3.json(earthquake_url).then(function(earthquake_data) {
+    d3.json(plate_url).then(function(plate_data) {
+        console.log(earthquake_data);
+        console.log(plate_data);
+        createFeatures(earthquake_data.features, plate_data.features)
 
     });
 
