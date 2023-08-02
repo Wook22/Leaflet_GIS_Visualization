@@ -101,27 +101,27 @@ function createMap (data, optional_data) {
         collapsed: false
     }).addTo(myMap);
 
-    // let legend = L.control({position: 'bottomright'});
+    let legend = L.control({position: 'bottomright'});
 
-    // legend.onAdd = function (myMap) {
+    legend.onAdd = function (myMap) {
 
-    //     let div = L.DomUtil.create('div', 'info legend'),
-    //         grades = [-10, 10, 30, 50, 70, 90],
-    //         labels = [],
-    //         legendInfo = "<h5>Magnitude</h5>";
+        let div = L.DomUtil.create('div', 'info legend'),
+            grades = [-10, 10, 30, 50, 70, 90],
+            labels = [],
+            legendInfo = "<h5>Magnitude</h5>";
 
-    //     for (let i = 0; i < grades.length; i++) {
-    //         div.innerHTML +=
-    //             '<i style="background:' + markerColor(grades[i] + 1) + '"></i> ' +
-    //             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    //     }    
+        for (let i = 0; i < grades.length; i++) {
+            div.innerHTML +=
+                '<i style="background:' + markerColor(grades[i] + 1) + '"></i> ' +
+                grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+        }    
 
-    //     return div;
+        return div;
 
-    //     };
+        };
 
-    //     // Add legend to map
-    //     legend.addTo(myMap);
+        // Add legend to map
+        legend.addTo(myMap);
 
 
     // Set up the legend.
