@@ -1,6 +1,6 @@
 # leaflet-challenge
 
-![](images/1-Logo.png)
+![](Images/1-Logo.png)
 
 ## Background
 
@@ -18,7 +18,7 @@ The instructions for this activity are broken into two parts:
 
 ### Part 1: Create the Earthquake Visualization
 
-![](images/2-BasicMap.png)
+![](Images/2-BasicMap.png)
 
 Your first task is to visualize an earthquake dataset. Complete the following steps:
 
@@ -26,11 +26,11 @@ Get your dataset. To do so, follow these steps:
 
 * The USGS provides earthquake data in a number of different formats, updated every 5 minutes. Visit the USGS GeoJSON FeedLinks to an external site. page and choose a dataset to visualize. The following image is an example screenshot of what appears when you visit this link:
 
-![](images/3-Data.png)
+![](Images/3-Data.png)
 
 * When you click a dataset (such as "All Earthquakes from the Past 7 Days"), you will be given a JSON representation of that data. Use the URL of this JSON to pull in the data for the visualization. The following image is a sampling of earthquake data in JSON format:
 
-![](images/4-JSON.png)
+![](Images/4-JSON.png)
 
 Import and visualize the data by doing the following:
 
@@ -51,7 +51,7 @@ This part is completely optional; you can complete this part as a way to challen
 
 The following image is an example screenshot of what you should produce:
 
-![](images/5-Advanced.png)
+![](Images/5-Advanced.png)
 
 Perform the following tasks:
 
@@ -63,9 +63,9 @@ Perform the following tasks:
 
 * Add layer controls to your map.
 
-![](images/Cluster.png)
+![](Images/Cluster.png)
 
-![](images/Heat.png)
+![](Images/Heat.png)
 
 ### Copyright
 
