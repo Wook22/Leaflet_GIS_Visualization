@@ -1,4 +1,4 @@
-# leaflet-challenge
+# Leaflet Geodata Visualization
 
 ![](Images/1-Logo.png)
 
