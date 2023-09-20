@@ -1,4 +1,4 @@
-# Leaflet Geodata Visualization
+# Leaflet Geological Data Visualization
 
 ![](Images/1-Logo.png)
 
